@@ -1,0 +1,32 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_env.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jhor <jhor@student.42kl.edu.my>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/09/03 18:23:28 by kationg           #+#    #+#             */
+/*   Updated: 2026/02/23 23:06:40 by jhor             ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "../../minishell.h"
+
+int	ft_env(char **argv, t_globe *p)
+{
+	t_envp	*ptr;
+
+	if (!p->envp_ls)
+		return (EXIT_FAILURE);
+	if (argv[1] == NULL)
+	{
+		ptr = p->envp_ls->head;
+		while (ptr)
+		{
+			ft_printf("%s=%s\n", ptr->key, ptr->value);
+			ptr = ptr->next;
+		}
+	}
+	p->exit_code[0] = EXIT_SUCCESS;
+	return (p->exit_code[0]);
+}

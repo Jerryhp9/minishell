@@ -1,0 +1,72 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   utils.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jhor <jhor@student.42kl.edu.my>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/10/14 20:26:28 by jhor              #+#    #+#             */
+/*   Updated: 2026/02/24 01:28:53 by jhor             ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "../../../minishell.h"
+
+void	free_treenode(t_ast *root)
+{
+	int	i;
+
+	i = 0;
+	if (!root)
+		return ;
+	while (i < root->childcount)
+	{
+		free_treenode(root->children[i]);
+		i++;
+	}
+	free(root->children);
+	if (root->argv)
+		free_argv(root->argv);
+	free(root);
+	root = NULL;
+}
+
+void	invalid_token(t_token *token, char *result, t_globe *p)
+{
+	if (!token || p->malloc_flag == 1)
+	{
+		if (result)
+			free(result);
+		if (token)
+			free(token);
+	}
+	return ;
+}
+
+void	empty_line(t_globe *p)
+{
+	p->trim = p->result;
+	p->trim = trim_prompt(p->trim);
+	if ((*p->trim) == '\0')
+	{
+		free(p->result);
+		p->err_flag = 1;
+	}
+	return ;
+}
+
+void	init_program(t_token **tkn, t_ast **nd, t_globe *p)
+{
+	*tkn = NULL;
+	*nd = NULL;
+	p->result = NULL;
+	p->cur_cmd = NULL;
+	p->trim = NULL;
+	p->exit_flag = 0;
+	p->err_flag = 0;
+	p->ptr = NULL;
+	p->origin = NULL;
+	p->malloc_flag = 0;
+	p->heredoc_flag = 0;
+	p->prev_read = STDIN_FILENO;
+}
