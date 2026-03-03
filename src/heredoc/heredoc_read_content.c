@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   heredoc_read_conten.c                              :+:      :+:    :+:   */
+/*   heredoc_read_content.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jhor <jhor@student.42kl.edu.my>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/24 00:42:28 by jhor              #+#    #+#             */
-/*   Updated: 2026/02/24 00:43:00 by jhor             ###   ########.fr       */
+/*   Updated: 2026/03/03 20:58:32 by jhor             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	init_read_content(char **lns, char **rslt, int *ttl_len, int *ln_ln)
 	*ln_ln = 0;
 }
 
-void	cntrl_d_err_msg(char *delimiter, t_globe *p)
+void	cntrl_d_err_msg(char *delimiter)
 {
 	ft_putstr_fd("minishell: heredoc had reached end-of-file (wanted `", 2);
 	ft_putstr_fd(delimiter, 2);
@@ -29,9 +29,13 @@ void	cntrl_d_err_msg(char *delimiter, t_globe *p)
 
 int	is_eof_delim(char *lines, char *delimiter, t_globe *p)
 {
+	ft_printf("what is lines:%s\n", lines);
+	ft_printf("what is delim:%s\n", delimiter);
+	ft_printf("lines: %d\n",ft_strlen(lines));
+	ft_printf("delimiter: %d\n",ft_strlen(delimiter));
 	if (!lines)
 	{
-		cntrl_d_err_msg(delimiter, p);
+		cntrl_d_err_msg(delimiter);
 		p->exit_code[0] = 0;
 		return (1);
 	}
@@ -55,7 +59,7 @@ char	*read_content(char *delimiter, t_globe *p)
 	while (1)
 	{
 		lines = readline("> ");
-		lines = heredoc_expand_check(lines, p);
+		lines = heredoc_expand_check(lines, delimiter, p);
 		if (p->malloc_flag || p->err_flag)
 			break ;
 		if (is_eof_delim(lines, delimiter, p) == 1)

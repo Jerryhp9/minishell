@@ -84,11 +84,11 @@ char	*line_expandable_check(char *line, t_globe *p)
 	return (result);
 }
 
-char	*heredoc_expand_check(char *line, t_globe *p)
+char	*heredoc_expand_check(char *line, char *delim, t_globe *p)
 {
 	if (!line)
 		return (NULL);
-	if (p->heredoc_q_flag == 0)
+	if (p->heredoc_q_flag == 0 && !ft_strchr(delim, '$'))
 		line = line_expandable_check(line, p);
 	return (line);
 }

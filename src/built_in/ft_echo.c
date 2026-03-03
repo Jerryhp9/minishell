@@ -6,7 +6,7 @@
 /*   By: jhor <jhor@student.42kl.edu.my>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/18 13:00:42 by kationg           #+#    #+#             */
-/*   Updated: 2026/02/23 23:06:00 by jhor             ###   ########.fr       */
+/*   Updated: 2026/02/26 16:29:48 by jhor             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int	is_n(char *arg)
 	return (n_flag);
 }
 
-int	ft_echo(char **argv, t_globe *p)
+int	ft_echo(char **argv)
 {
 	int		i;
 	bool	n_flag;

@@ -6,7 +6,7 @@
 /*   By: jhor <jhor@student.42kl.edu.my>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/02 08:25:55 by kationg           #+#    #+#             */
-/*   Updated: 2026/02/23 23:22:38 by jhor             ###   ########.fr       */
+/*   Updated: 2026/02/26 17:21:47 by jhor             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,8 +53,9 @@ void	set_env_var(char *arg, t_globe *p)
 void	print_error_export(char *arg)
 {
 	ft_putstr_fd("minishell: export: ", 2);
-	ft_putstr_fd("`%s': ", 2);
-	ft_putendl_fd("not a valid identifier", 2);
+	ft_putstr_fd("`", 2);
+	ft_putstr_fd(arg, 2);
+	ft_putendl_fd("': not a valid identifier", 2);
 }
 
 void	print_export(t_globe *p)
@@ -64,14 +65,14 @@ void	print_export(t_globe *p)
 
 	i = 0;
 	array = NULL;
-	array = build_array_list(p->envp_ls, p);
+	array = build_array_list(p->envp_ls);
 	array = bubble_sort_alpha(array, p);
 	while (array[i])
 	{
 		ft_printf("declare -x %s\n", array[i]);
 		i++;
 	}
-	free_array_list(array, p);
+	free_array_list(array);
 }
 
 int	ft_export(char **argv, t_globe *p)

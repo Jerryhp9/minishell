@@ -6,7 +6,7 @@
 /*   By: jhor <jhor@student.42kl.edu.my>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/03 14:25:52 by jhor              #+#    #+#             */
-/*   Updated: 2026/02/24 01:26:39 by jhor             ###   ########.fr       */
+/*   Updated: 2026/03/03 21:01:00 by jhor             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ char		*char_join_str_mark(char *lxm, char *result,
 				size_t *i, t_globe *p);
 char		*expandable_loop_condition(char *lxm, char *result,
 				size_t *i, t_globe *p);
-char		*heredoc_expand_check(char *line, t_globe *p);
+char		*heredoc_expand_check(char *line, char *delim, t_globe *p);
 void		free_origin(t_expand *origin);
 void		free_all(char *result, char **tokens,
 				t_expand **copies, t_globe *p);

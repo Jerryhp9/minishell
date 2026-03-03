@@ -6,7 +6,7 @@
 /*   By: jhor <jhor@student.42kl.edu.my>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/21 15:56:57 by jhor              #+#    #+#             */
-/*   Updated: 2026/02/24 00:05:08 by jhor             ###   ########.fr       */
+/*   Updated: 2026/03/03 20:34:39 by jhor             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,7 @@ void	minishell_core(t_globe *p)
 		return ;
 	if (p->node)
 	{
+		ft_ast_visualize(p->node);
 		heredoc_ast(p->node, p);
 		if (p->malloc_flag == 1 || p->err_flag == 1)
 			return ;

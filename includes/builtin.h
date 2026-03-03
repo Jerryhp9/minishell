@@ -6,7 +6,7 @@
 /*   By: jhor <jhor@student.42kl.edu.my>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/24 01:22:22 by jhor              #+#    #+#             */
-/*   Updated: 2026/02/24 01:22:43 by jhor             ###   ########.fr       */
+/*   Updated: 2026/02/26 16:34:55 by jhor             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,13 @@
 
 # include "../minishell.h"
 
-int		ft_echo(char **argv, t_globe *p);
+int		ft_echo(char **argv);
 int		ft_cd(char **argv, t_globe *p);
 int		ft_pwd(char **argv, t_globe *p);
 int		ft_export(char **argv, t_globe *p);
-void	free_array_list(char **array, t_globe *p);
+void	free_array_list(char **array);
 char	**bubble_sort_alpha(char **array, t_globe *p);
-char	**build_array_list(t_shell *envp, t_globe *p);
+char	**build_array_list(t_shell *envp);
 int		ft_unset(char **argv, t_globe *p);
 int		ft_env(char **argv, t_globe *p);
 void	ft_exit(char **argv, t_globe *p);

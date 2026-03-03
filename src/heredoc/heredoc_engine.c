@@ -6,7 +6,7 @@
 /*   By: jhor <jhor@student.42kl.edu.my>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/24 00:30:26 by jhor              #+#    #+#             */
-/*   Updated: 2026/02/24 01:19:02 by jhor             ###   ########.fr       */
+/*   Updated: 2026/02/26 16:27:00 by jhor             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@ void	heredoc_engine(t_ast *heredoc, t_globe *p)
 	int		status;
 
 	status = 0;
+	kid = 0;
 	set_heredoc_pipe(heredoc->heredoc_fd, p);
 	if (p->err_flag == 1)
 		return ;

@@ -26,9 +26,9 @@ void	token_not_word(t_token *cur_rdr, t_ast *prt, t_ast *child, t_globe *p)
 	cur_rdr = p->cursor;
 	p = get_token(p);
 	child = parse_redirection(child, p, cur_rdr);
+	attach_treenode(prt, child, p);
 	if (p->err_flag == 1)
 		return ;
-	attach_treenode(prt, child, p);
 	if (p->malloc_flag == 1)
 	{
 		free_treenode(child);

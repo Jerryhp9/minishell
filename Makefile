@@ -11,7 +11,7 @@
 # **************************************************************************** #
 
 CC = cc
-CFLAGS = -g3# -fsanitize=address,leak,undefined
+CFLAGS = -g3 -Wall -Wextra -Werror
 LDFLAGS = -lreadline
 NAME = minishell
 RM = rm -f

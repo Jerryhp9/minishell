@@ -6,7 +6,7 @@
 /*   By: jhor <jhor@student.42kl.edu.my>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/24 01:08:11 by jhor              #+#    #+#             */
-/*   Updated: 2026/02/24 01:08:54 by jhor             ###   ########.fr       */
+/*   Updated: 2026/02/26 16:28:48 by jhor             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void	child_process(int *i, t_globe *p, int readpipe, int writepipe)
 			p->prev_read, STDOUT_FILENO);
 }
 
-bool	fork_child(pid_t *pid, t_globe *p)
+bool	fork_child(pid_t *pid)
 {
 	*pid = fork();
 	if (*pid == -1)
@@ -74,7 +74,7 @@ int	execute_pipeline(t_ast *root, t_globe *p)
 	{
 		if (i < root->childcount - 1 && pipe(pipefd) == -1)
 			return (perror("pipe"), p->exit_code[0] = 1, 1);
-		if (!fork_child(&pid, p))
+		if (!fork_child(&pid))
 			return (perror("fork"), p->exit_code[0] = 1, 1);
 		if (pid == 0)
 		{

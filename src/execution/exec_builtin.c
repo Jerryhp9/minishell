@@ -6,7 +6,7 @@
 /*   By: jhor <jhor@student.42kl.edu.my>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/15 22:22:32 by jhor              #+#    #+#             */
-/*   Updated: 2026/02/24 01:03:23 by jhor             ###   ########.fr       */
+/*   Updated: 2026/02/26 17:22:07 by jhor             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	run_builtin(t_globe *p, char **argv, int in_parent)
 	if (!argv || !argv[0])
 		return (0);
 	if (!ft_strncmp(argv[0], "echo", 4))
-		return (ft_echo(argv, p));
+		return (ft_echo(argv));
 	if (!ft_strncmp(argv[0], "cd", 2))
 		return (ft_cd(argv, p));
 	if (!ft_strncmp(argv[0], "pwd", 3))

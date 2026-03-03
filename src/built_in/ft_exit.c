@@ -6,7 +6,7 @@
 /*   By: jhor <jhor@student.42kl.edu.my>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/19 09:00:52 by kationg           #+#    #+#             */
-/*   Updated: 2026/02/23 23:12:39 by jhor             ###   ########.fr       */
+/*   Updated: 2026/02/26 16:31:38 by jhor             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 // if exit with pipes then only exit subprocess and not shell
 // shell stores the process exit status as an unsigned 8-bit value (modulo 256)
 
-static int	get_exit_code(char *arg, t_globe *p)
+static int	get_exit_code(char *arg)
 {
 	int	i;
 	int	negative;
@@ -93,8 +93,6 @@ int	validate_exit(char **argv, t_globe *p)
 
 void	ft_exit(char **argv, t_globe *p)
 {
-	int	exit_code;
-
 	if (!argv[1])
 	{
 		if (p->node->childcount == 1)
@@ -107,7 +105,7 @@ void	ft_exit(char **argv, t_globe *p)
 	{
 		if (validate_exit(argv, p))
 		{
-			p->exit_code[0] = get_exit_code(argv[1], p);
+			p->exit_code[0] = get_exit_code(argv[1]);
 			main_free(p->node, p->token, p->result, p);
 			exit(p->exit_code[0]);
 		}

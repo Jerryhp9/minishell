@@ -6,7 +6,7 @@
 /*   By: jhor <jhor@student.42kl.edu.my>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/24 01:13:44 by jhor              #+#    #+#             */
-/*   Updated: 2026/02/24 17:03:52 by jhor             ###   ########.fr       */
+/*   Updated: 2026/02/26 16:29:27 by jhor             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ int	process_fdir(char *arg)
 	char		*raw;
 	struct stat	statbuf;
 
+	raw = NULL;
 	if (stat(arg, &statbuf) == 0)
 	{
 		if (S_ISDIR(statbuf.st_mode))

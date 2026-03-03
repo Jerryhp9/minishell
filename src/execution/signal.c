@@ -6,13 +6,12 @@
 /*   By: jhor <jhor@student.42kl.edu.my>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/24 01:20:45 by jhor              #+#    #+#             */
-/*   Updated: 2026/02/24 17:16:30 by jhor             ###   ########.fr       */
+/*   Updated: 2026/02/26 15:50:02 by jhor             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../minishell.h"
 
-//!work on not mixing the heredoc signal with normal environment signal behavior
 void	signal_get_code(int signa, t_globe *p)
 {
 	if (signa == SIGINT)

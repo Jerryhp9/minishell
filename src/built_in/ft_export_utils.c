@@ -6,7 +6,7 @@
 /*   By: jhor <jhor@student.42kl.edu.my>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/26 18:59:06 by jhor              #+#    #+#             */
-/*   Updated: 2026/02/23 23:27:36 by jhor             ###   ########.fr       */
+/*   Updated: 2026/02/26 16:35:29 by jhor             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ char	*merge_env_list(char *str, t_envp *env_ls)
 	return (str);
 }
 
-char	**build_array_list(t_shell *envp, t_globe *p)
+char	**build_array_list(t_shell *envp)
 {
 	t_envp	*ptr;
 	int		i;
@@ -41,9 +41,8 @@ char	**build_array_list(t_shell *envp, t_globe *p)
 	return (array);
 }
 
-int	compare_two_index(char **indx1, char **indx2, t_globe *p)
+int	compare_two_index(char **indx1, char **indx2)
 {
-	int		i;
 	char	*tmp;
 	int		swap;
 
@@ -71,7 +70,7 @@ char	**bubble_sort_alpha(char **array, t_globe *p)
 		i = 0;
 		while (i < p->envp_ls->size - 1)
 		{
-			if (compare_two_index(&array[i], &array[i + 1], p))
+			if (compare_two_index(&array[i], &array[i + 1]))
 				swap = 1;
 			i++;
 		}
@@ -79,7 +78,7 @@ char	**bubble_sort_alpha(char **array, t_globe *p)
 	return (array);
 }
 
-void	free_array_list(char **array, t_globe *p)
+void	free_array_list(char **array)
 {
 	int	i;
 
